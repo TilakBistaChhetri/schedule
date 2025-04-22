@@ -28,7 +28,11 @@ class CustomTextField extends StatelessWidget {
               controller: pickupdateController,
               decoration: InputDecoration(
                 hintText: 'Pickup Date',
-                prefixIcon: const Icon(Icons.person),
+                prefixIcon: Image.asset(
+                  'assets/icons/calender.png',
+                  width: 24,
+                  height: 22,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: const BorderSide(color: Colors.blue),
@@ -46,14 +50,17 @@ class CustomTextField extends StatelessWidget {
             width: 364,
             height: 44,
             child: TextField(
-              controller: pickuptimeController,
+              controller: pickupdateController,
               decoration: InputDecoration(
-                hintText: 'PickUp Time',
-                // labelText: 'Email',
-                prefixIcon: const Icon(Icons.email),
+                hintText: 'Pickup Date',
+                prefixIcon: Image.asset(
+                  'assets/icons/clock.png',
+                  width: 24,
+                  height: 22,
+                ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.blue),
+                  borderSide: const BorderSide(color: Colors.blue),
                 ),
                 filled: true,
                 fillColor: Colors.white,
@@ -77,8 +84,12 @@ class CustomTextField extends StatelessWidget {
                 child: TextField(
                   controller: fromController,
                   decoration: InputDecoration(
-                    hintText: 'IT, Plaza, Kathmandu',
-                    prefixIcon: const Icon(Icons.phone),
+                    hintText: 'IT, Plaza, Kathmandu ',
+                    prefixIcon: Image.asset(
+                      'assets/icons/glocation.png',
+                      width: 24,
+                      height: 22,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Colors.blue),
@@ -108,8 +119,12 @@ class CustomTextField extends StatelessWidget {
                 child: TextField(
                   controller: toController,
                   decoration: InputDecoration(
-                    hintText: 'IT, Plaza, Kathmandu',
-                    prefixIcon: const Icon(Icons.phone),
+                    hintText: 'Destination',
+                    prefixIcon: Image.asset(
+                      'assets/icons/rlocation.png',
+                      width: 24,
+                      height: 22,
+                    ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Colors.blue),
@@ -139,7 +154,6 @@ class CustomTextField extends StatelessWidget {
                 child: TextField(
                   controller: additionalController,
                   decoration: InputDecoration(
-                    prefixIcon: const Icon(Icons.phone),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: const BorderSide(color: Colors.blue),
