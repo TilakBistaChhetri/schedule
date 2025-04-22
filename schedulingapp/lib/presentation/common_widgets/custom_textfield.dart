@@ -6,11 +6,6 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? fromController;
   final TextEditingController? toController;
   final TextEditingController? additionalController;
-  // final TextEditingController? descriptionController;
-  // final TextEditingController? bidpriceController;
-  // final TextEditingController? deadlineController;
-  // final TextEditingController? numberofpagesController;
-  // final TextEditingController? searchController;
 
   const CustomTextField({
     super.key,
@@ -19,22 +14,16 @@ class CustomTextField extends StatelessWidget {
     this.toController,
     this.fromController,
     this.additionalController,
-    // this.descriptionController,
-    // this.bidpriceController,
-    // this.deadlineController,
-    // this.numberofpagesController,
-    // this.searchController,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-  
         if (pickupdateController != null) ...[
           SizedBox(
-            width: 364, 
-            height: 44, 
+            width: 364,
+            height: 44,
             child: TextField(
               controller: pickupdateController,
               decoration: InputDecoration(
@@ -54,8 +43,8 @@ class CustomTextField extends StatelessWidget {
 
         if (pickuptimeController != null) ...[
           SizedBox(
-              width: 364, 
-            height: 44, 
+            width: 364,
+            height: 44,
             child: TextField(
               controller: pickuptimeController,
               decoration: InputDecoration(
@@ -74,148 +63,96 @@ class CustomTextField extends StatelessWidget {
           const SizedBox(height: 15),
         ],
         if (fromController != null) ...[
-          SizedBox(
-              width: 364, 
-            height: 44, 
-            child: TextField(
-              controller: fromController,
-              decoration: InputDecoration(
-                hintText: 'IT, Plaza, Kathmandu',
-                // labelText: 'Phone',
-                prefixIcon: const Icon(Icons.phone),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.blue),
-                ),
-                filled: true,
-                fillColor: Colors.white,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'From',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
-            ),
-          ),
-          const SizedBox(height: 15),
-        ],
-        if (toController != null) ...[
-          SizedBox(
-              width: 364, 
-            height: 44, 
-            child: TextField(
-              controller: toController,
-              obscureText: true, // for password visibility toggle
-              decoration: InputDecoration(
-                hintText: 'Destination',
-                // labelText: 'Password',
-                prefixIcon: const Icon(Icons.lock),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.blue),
+              const SizedBox(height: 5),
+              SizedBox(
+                width: 364,
+                height: 44,
+                child: TextField(
+                  controller: fromController,
+                  decoration: InputDecoration(
+                    hintText: 'IT, Plaza, Kathmandu',
+                    prefixIcon: const Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.blue),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
                 ),
-                filled: true,
-                fillColor: Colors.white,
               ),
-            ),
+              const SizedBox(height: 15),
+            ],
           ),
-          const SizedBox(height: 15),
         ],
 
-            if (toController != null) ...[
-          SizedBox(
-              width: 364, 
-            height: 44, 
-            child: TextField(
-              controller: additionalController,
-              obscureText: true, // for password visibility toggle
-              decoration: InputDecoration(
-                prefixIcon: const Icon(Icons.lock),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: BorderSide(color: Colors.blue),
-                ),
-                filled: true,
-                fillColor: Colors.white,
+        if (toController != null) ...[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'To',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
-            ),
+              const SizedBox(height: 5),
+              SizedBox(
+                width: 364,
+                height: 44,
+                child: TextField(
+                  controller: toController,
+                  decoration: InputDecoration(
+                    hintText: 'IT, Plaza, Kathmandu',
+                    prefixIcon: const Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.blue),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+            ],
           ),
-          const SizedBox(height: 15),
         ],
-     
-        // if (descriptionController != null) ...[
-        //   TextField(
-        //     controller: descriptionController,
-        //     decoration: InputDecoration(
-        //       hintText: 'Enter your description',
-        //       labelText: 'Description',
-        //       border: OutlineInputBorder(
-        //         borderRadius: BorderRadius.circular(8),
-        //         borderSide: BorderSide(color: Colors.blue),
-        //       ),
-        //       filled: true,
-        //       fillColor: Colors.white,
-        //     ),
-        //   ),
-        //   const SizedBox(height: 20),
-        // ],
-        // if (numberofpagesController != null) ...[
-        //   TextField(
-        //     controller: numberofpagesController,
-        //     decoration: InputDecoration(
-        //       hintText: 'Enter number of pages',
-        //       labelText: 'Number of Pages',
-        //       border: OutlineInputBorder(
-        //         borderRadius: BorderRadius.circular(8),
-        //         borderSide: BorderSide(color: Colors.blue),
-        //       ),
-        //       filled: true,
-        //       fillColor: Colors.white,
-        //     ),
-        //   ),
-        //   const SizedBox(height: 20),
-        // ],
-        // if (deadlineController != null) ...[
-        //   TextField(
-        //     controller: deadlineController,
-        //     decoration: InputDecoration(
-        //       hintText: 'Enter deadline',
-        //       labelText: 'Deadline',
-        //       border: OutlineInputBorder(
-        //         borderRadius: BorderRadius.circular(8),
-        //         borderSide: BorderSide(color: Colors.blue),
-        //       ),
-        //       filled: true,
-        //       fillColor: Colors.white,
-        //     ),
-        //   ),
-        //   const SizedBox(height: 20),
-        // ],
-        // if (bidpriceController != null) ...[
-        //   TextField(
-        //     controller: bidpriceController,
-        //     decoration: InputDecoration(
-        //       hintText: 'Enter bid price',
-        //       labelText: 'Bid Price',
-        //       border: OutlineInputBorder(
-        //         borderRadius: BorderRadius.circular(8),
-        //         borderSide: BorderSide(color: Colors.blue),
-        //       ),
-        //       filled: true,
-        //       fillColor: Colors.white,
-        //     ),
-        //   ),
-        //   const SizedBox(height: 20),
-        // ],
-        // if (searchController != null) ...[
-        //   TextField(
-        //     controller: searchController,
-        //     decoration: InputDecoration(
-        //       hintText: 'Search freelancers',
-        //       labelText: 'Search',
-        //       border: OutlineInputBorder(
-        //         borderRadius: BorderRadius.circular(8),
-        //         borderSide: BorderSide(color: Colors.blue),
-        //       ),
-        //       filled: true,
-        //       fillColor: Colors.white,
-        //     ),
-        //   ),
+
+        if (additionalController != null) ...[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Additional Info',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              const SizedBox(height: 5),
+              SizedBox(
+                width: 364,
+                height: 44,
+                child: TextField(
+                  controller: additionalController,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.phone),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: Colors.blue),
+                    ),
+                    filled: true,
+                    fillColor: Colors.white,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+            ],
+          ),
+        ],
       ],
     );
   }

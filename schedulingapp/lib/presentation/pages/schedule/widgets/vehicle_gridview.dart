@@ -5,56 +5,71 @@ import 'package:velocity_x/velocity_x.dart';
 class VehicleGridView extends StatelessWidget {
   final List<Map<String, dynamic>> dashboardData;
 
-  VehicleGridView({required this.dashboardData});
+  const VehicleGridView({super.key, required this.dashboardData});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3, // Number of items per row
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8.w), // Slight padding to fix outer overflow
+      child: GridView.builder(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 10.h,
+          crossAxisSpacing: 10.w,
+          childAspectRatio: 0.85,
+        ),
+        itemCount: dashboardData.length,
+        itemBuilder: (context, index) {
+          final item = dashboardData[index];
+          return _buildDashboardItem(item);
+        },
       ),
-      itemCount: dashboardData.length,
-      itemBuilder: (context, index) {
-        final item = dashboardData[index];
-        return _buildDashboardItem(item);
-      },
     );
   }
 
   Widget _buildDashboardItem(Map<String, dynamic> item) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(10.r),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey, width: 1),
+        borderRadius: BorderRadius.circular(10.r),
+        border: Border.all(color: Colors.grey.shade300, width: 1),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          5.h.heightBox,
           Image.asset(
             item['value'] ?? '',
-            height: 30,
-            width: 50,
+            height: 35.h,
+            width: 50.w,
             fit: BoxFit.contain,
           ),
-          10.h.heightBox,
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                item['title'] ?? '',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
-              ),
-              SizedBox(width: 5),
-              (item['number'].toString()).text.bold.size(10.sp).make(),
-              SizedBox(width: 5),
-              Icon(item['icon'], size: 20),
-            ],
+          6.h.heightBox,
+          // Wrap Row in FittedBox to auto-fit and prevent overflow
+          FittedBox(
+            child: Row(
+              children: [
+                Text(
+                  item['title'] ?? '',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12.sp,
+                  ),
+                ),
+                4.w.widthBox,
+                Text(
+                  item['number'].toString(),
+                  style: TextStyle(
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                4.w.widthBox,
+                Icon(item['icon'], size: 16.sp),
+              ],
+            ),
           ),
         ],
       ),
